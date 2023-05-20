@@ -101,8 +101,13 @@ itself (not its value) is returned. The reader macro #'x expands to (var x)."}})
         (nil? thing) "nil: a special value meaning nothing",
         (number? thing) "a number: it can be whole, a decimal, or even a ratio",
         (string? thing) "a string: a run of characters that can make up a text",
+        (inst? thing) "an instant: a representation of a point in time",
+        (uuid? thing) "a UUID: a universally unique identifier",
         (symbol? thing) "a symbol: a name that usually refers to something",
+        (class? thing) "a Java Class"
         (instance? clojure.lang.Atom thing) "a Clojure atom, a way to manage data that can change"
+        (instance? Error thing) "an Error, a Java class indicating a serious problem that a reasonable application should not try to catch"
+        (instance? Exception thing) "an Exception, a Java class indicating a failure that a reasonable application might want to catch"
         (fn? thing) "a function: something you call with input that returns output"))
 
 (defmacro what-is
