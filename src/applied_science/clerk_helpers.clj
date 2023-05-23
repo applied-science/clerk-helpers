@@ -252,3 +252,26 @@ itself (not its value) is returned. The reader macro #'x expands to (var x)."}})
   (clojure.repl/source do)
   
   )
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; Dir
+
+(defmacro dir
+  "Clerk directory listing display fn.
+  Shows a sorted directory of public vars in a namespace.
+
+  Example: (dir clojure.string)"
+  [nsname]
+  `(clojure.repl/dir-fn '~nsname))
+
+
+(comment
+  (dir clojure.string)
+
+  (dir applied-science.clerk-helpers)
+
+  (dir clojure.core)
+
+  )
